@@ -1,7 +1,4 @@
-import { RepoProvider } from '../../dataProviders/repo.provider';
-import { HTTP_STATUS } from '../../services/httpStatus';
-
-export class GoListController {
+export class ListController {
   public repos: Array<any>;
   public msg: string;
 
@@ -18,6 +15,7 @@ export class GoListController {
 
   public search = (query): angular.IPromise<any> => {
     var promise;
+
     this.setStatus(this.HTTP_STATUS.LOADING);
     this.repos = [];
 
@@ -56,7 +54,7 @@ export class GoListController {
         this.msg = 'Searching...';
         break;
       case 'CLEAR':
-        this.msg = 'Search for username';
+        this.msg = 'Type GitHub username and click search (or press Enter)';
         break;
     }
   };

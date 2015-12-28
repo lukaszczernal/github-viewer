@@ -1,7 +1,9 @@
-import { HTTP_STATUS } from './httpStatus';
+export default angular.module('httpInterceptor.service', [])
+  .factory('httpInterceptor', httpInterceptor)
+  .name;
 
 /** @ngInject */
-export function httpInterceptor($q: ng.IQService, HTTP_STATUS: any) {
+function httpInterceptor($q: ng.IQService, HTTP_STATUS: any) {
 
   return {
 

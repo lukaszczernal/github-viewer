@@ -1,10 +1,14 @@
+export default angular.module('HTTP_STATUS.service', [])
+  .constant('HTTP_STATUS', httpStatus())
+  .name;
 
-
-export class HTTP_STATUS {
-  static NOT_FOUND: string ='NOT_FOUND';
-  static NO_RESPONSE: string ='NO_RESPONSE';
-  static TIMEOUT: string ='TIMEOUT';
-  static NO_DATA: string ='NO_DATA';
-  static SUCCESS: string ='SUCCESS';
-  static LOADING: string ='LOADING';
+function httpStatus() {
+  return {
+    NOT_FOUND: 'NOT_FOUND',
+    NO_RESPONSE: 'NO_RESPONSE',
+    TIMEOUT: 'TIMEOUT',
+    NO_DATA: 'NO_DATA',
+    SUCCESS: 'SUCCESS',
+    LOADING: 'LOADING'
+  }
 }

@@ -1,6 +1,4 @@
-import { RepoProvider } from '../../dataProviders/repo.provider';
-
-export class GoSearchController {
+export class QueryController {
   query: string = 'lukaszczernal';
 
   /** @ngInject */

@@ -1,33 +1,19 @@
 /// <reference path="../../.tmp/typings/tsd.d.ts" />
-/// <reference path="./services/services.module.ts" />
 
-import { config } from './index.config';
-import { routerConfig, RouterController } from './index.route';
-import { runBlock } from './index.run';
-import { MainController } from './main/main.controller';
-import { acmeNavbar } from '../app/components/navbar/navbar.directive';
-import { goSearch } from '../app/components/goSearch/goSearch.directive';
-import { goList } from '../app/components/goList/goList.directive';
-import { RepoProvider } from './dataProviders/repo.provider';
-import { httpInterceptor } from './services/httpInterceptor';
-// import { httpInterceptor } from './services/httpInterceptor';
-// import { HTTP_STATUS } from './services/httpStatus';
+import { config, routerConfig } from './index.config';
+import { RouterController } from './index.route';
 
-// declare var malarkey: any;
-declare var moment: moment.MomentStatic;
+import Services from './services/services';
+import Providers from './providers/providers';
+
+import SearchModule from './components/search/search.module';
 
 module goeuro {
   'use strict';
 
-  angular.module('goeuro', ['services', 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngNewRouter', 'ui.bootstrap', 'toastr'])
-    .constant('moment', moment)
+  angular.module('goeuro', [SearchModule, Services, Providers, 'ngNewRouter', 'ui.bootstrap'])
     .config(config)
     .config(routerConfig)
-    .run(runBlock)
     .controller('RouterController', RouterController)
-    .controller('MainController', MainController)
-    .service('RepoProvider', RepoProvider)
-    .directive('acmeNavbar', acmeNavbar)
-    .directive('goSearch', goSearch)
-    .directive('goList', goList);
+
 }
