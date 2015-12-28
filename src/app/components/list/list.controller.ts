@@ -6,14 +6,14 @@ export class ListController {
   constructor(
     private HTTP_STATUS: any,
     private RepoProvider: any,
-    private $scope: angular.IScope,
-    private $rootScope: angular.IRootScopeService
+    private $scope: ng.IScope,
+    private $rootScope: ng.IRootScopeService
   ) {
     this.setStatus('CLEAR');
     this.addEventListeners();
   }
 
-  public search = (query): angular.IPromise<any> => {
+  public search = (query: string): angular.IPromise<any> => {
     var promise;
 
     this.setStatus(this.HTTP_STATUS.LOADING);
@@ -26,28 +26,28 @@ export class ListController {
     return promise;
   };
 
-  private getRepoSuccess = (res) => {
+  private getRepoSuccess = (res: Array<any>) => {
     var status = (res.length > 0) ? this.HTTP_STATUS.SUCCESS : this.HTTP_STATUS.NO_DATA;
     this.repos = res;
     this.setStatus(status);
   };
 
-  private getRepoFail = (err) => {
+  private getRepoFail = (err: string) => {
     this.setStatus(err);
   };
 
-  private setStatus = (status) => {
+  private setStatus = (status: string) => {
     switch (status) {
       case this.HTTP_STATUS.SUCCESS:
         this.msg = '';
         break;
-      case this.HTTP_STATUS.NO_RESPONSE: //500
+      case this.HTTP_STATUS.NO_RESPONSE: // 500
         this.msg = 'Ops! Something went wrong. Try again.';
         break;
-      case this.HTTP_STATUS.NO_DATA: //200 - no repos
+      case this.HTTP_STATUS.NO_DATA: // 200 - no repos
         this.msg = 'User has no repos.';
         break;
-      case this.HTTP_STATUS.NOT_FOUND: //404
+      case this.HTTP_STATUS.NOT_FOUND: // 404
         this.msg = 'Username not found.';
         break;
       case this.HTTP_STATUS.LOADING:
@@ -60,7 +60,7 @@ export class ListController {
   };
 
   private addEventListeners() {
-    var onSearch = (evt, query) => { this.search(query); };
+    var onSearch = (evt: ng.IAngularEvent, query: string) => { this.search(query); };
     var onSearchListener = this.$rootScope.$on('SEARCH', onSearch);
 
     this.$scope.$on('$destroy', function() { onSearchListener(); });

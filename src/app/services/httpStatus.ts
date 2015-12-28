@@ -1,5 +1,5 @@
 export default angular.module('HTTP_STATUS.service', [])
-  .constant('HTTP_STATUS', httpStatus())
+  .constant('HTTP_STATUS', httpStatus)
   .name;
 
 function httpStatus() {
@@ -10,5 +10,5 @@ function httpStatus() {
     NO_DATA: 'NO_DATA',
     SUCCESS: 'SUCCESS',
     LOADING: 'LOADING'
-  }
+  };
 }

@@ -14,6 +14,6 @@ module goeuro {
   angular.module('goeuro', [SearchModule, Services, Providers, 'ngNewRouter', 'ui.bootstrap'])
     .config(config)
     .config(routerConfig)
-    .controller('RouterController', RouterController)
+    .controller('RouterController', RouterController);
 
 }

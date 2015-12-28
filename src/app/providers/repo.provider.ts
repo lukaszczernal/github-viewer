@@ -4,22 +4,22 @@ export class RepoProvider {
   /* @ngInject */
   constructor(private $http: angular.IHttpService) {};
 
-  transformReponse(res, index, array) {
+  transformReponses = (res: any): any => {
+    if (!res) { return ''; };
+    let result = res.data;
+    result.forEach(this.transformReponse);
+    return result;
+  };
+
+  transformReponse(res: any, index: number, array: Array<any>) {
     array[index] = {
       id    : res.id,
       title : res.name,
       url   : res.html_url
-    }
+    };
   }
 
-  transformReponses = (res): any => {
-    if (!res) return '';
-    let result = res.data;
-    result.forEach(this.transformReponse);
-    return result;
-  }
-
-  get(query:string): angular.IPromise<any> {
+  get(query: string): angular.IPromise<any> {
     let url: string;
     let promise: angular.IPromise<any>;
 

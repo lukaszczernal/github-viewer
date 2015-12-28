@@ -7,14 +7,14 @@ function httpInterceptor($q: ng.IQService, HTTP_STATUS: any) {
 
   return {
 
-    // Global Ajax calls timeout
-    request: function(config) {
+    // global Ajax calls timeout
+    request: function(config: ng.IRequestShortcutConfig) {
       config.timeout = 30000; // 30 sec
       return config;
     },
 
-    // Unifying Ajax error responses
-    responseError: function (err) {
+    // unifying Ajax error responses
+    responseError: function (err: any) {
       let reason: string;
       switch (err.status) {
         case 404:
