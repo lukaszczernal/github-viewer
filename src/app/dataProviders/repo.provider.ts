@@ -25,11 +25,7 @@ export class RepoProvider {
 
     url = [this.endpoint, query, 'repos'].join('/');
 
-    // promise = this.$http.get(url);
-    promise = this.$http({
-      method: "get",
-      url: url
-    });
+    promise = this.$http.get(url);
     promise = promise.then(this.transformReponses);
 
     return promise;

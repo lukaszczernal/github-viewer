@@ -18,7 +18,6 @@ export class GoListController {
 
   public search = (query): angular.IPromise<any> => {
     var promise;
-
     this.setStatus(this.HTTP_STATUS.LOADING);
     this.repos = [];
 
