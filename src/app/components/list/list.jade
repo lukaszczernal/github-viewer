@@ -1,9 +1,0 @@
-.goList.row
-
-  .col-xs-8.col-xs-offset-2
-
-    .goList-message(ng-bind="goListVm.msg")
-      
-    ul.goList-wrapper
-      li.goList-element(ng-repeat="repo in goListVm.repos track by repo.id")
-        a.goList-link(ng-href="{{::repo.url}}" ng-bind="::repo.title" target="_blank")
