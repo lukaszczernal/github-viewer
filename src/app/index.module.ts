@@ -9,6 +9,7 @@ import { goSearch } from '../app/components/goSearch/goSearch.directive';
 import { goList } from '../app/components/goList/goList.directive';
 import { RepoProvider } from './dataProviders/repo.provider';
 import { httpInterceptor } from './services/httpInterceptor';
+import { HTTP_STATUS } from './services/httpStatus';
 
 // declare var malarkey: any;
 declare var moment: moment.MomentStatic;
@@ -25,6 +26,7 @@ module goeuro {
     .controller('MainController', MainController)
     .service('RepoProvider', RepoProvider)
     .factory('httpInterceptor', httpInterceptor)
+    .constant('HTTP_STATUS', HTTP_STATUS)
     .directive('acmeNavbar', acmeNavbar)
     .directive('goSearch', goSearch)
     .directive('goList', goList);

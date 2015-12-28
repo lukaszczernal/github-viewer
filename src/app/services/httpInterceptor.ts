@@ -1,6 +1,8 @@
-/** @ngInject */
+import { HTTP_STATUS } from './httpStatus';
 
-export function httpInterceptor($q: ng.IQService) {
+/** @ngInject */
+export function httpInterceptor($q: ng.IQService, HTTP_STATUS: any) {
+
   return {
 
     // Global Ajax calls timeout
@@ -9,17 +11,19 @@ export function httpInterceptor($q: ng.IQService) {
       return config;
     },
 
-    // Unifying Ajax error responses 
+    // Unifying Ajax error responses
     responseError: function (err) {
       let reason: string;
-
       switch (err.status) {
         case 404:
-          reason = 'NOT_FOUND';
+          reason = HTTP_STATUS.NOT_FOUND;
+          break;
         case 500:
-          reason = 'NO_RESPONSE';
+          reason = HTTP_STATUS.NO_RESPONSE;
+          break;
         case -1:
-          reason = 'TIMEOUT';
+          reason = HTTP_STATUS.TIMEOUT;
+          break;
       };
 
       return $q.reject(reason);

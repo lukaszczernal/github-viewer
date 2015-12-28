@@ -1,13 +1,14 @@
-/* @ngInject */
-
 export class RepoProvider {
   public endpoint: string = 'https://api.github.com/users';
 
+  /* @ngInject */
   constructor(private $http: angular.IHttpService) {};
 
   transformReponse(res, index, array) {
     array[index] = {
-      title: res.name
+      id    : res.id,
+      title : res.name,
+      url   : res.html_url
     }
   }
 
@@ -34,22 +35,3 @@ export class RepoProvider {
     return promise;
   }
 }
-
-// export class RepoProvider {
-//   public apiHost: string = 'https://api.github.com/repos/Swiip/generator-gulp-angular';
-//
-//   /** @ngInject */
-//   constructor(private $log: angular.ILogService, private $http: angular.IHttpService) {
-//
-//   }
-//
-//   getContributors(limit: number = 30): angular.IPromise<any[]> {
-//     return this.$http.get(this.apiHost + '/contributors?per_page=' + limit)
-//       .then((response: any): any => {
-//         return response.data;
-//       })
-//       .catch((error: any): any => {
-//         this.$log.error('XHR Failed for getContributors.\n', error.data);
-//       });
-//   }
-// }
