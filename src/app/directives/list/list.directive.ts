@@ -1,7 +1,7 @@
 import { ListController } from './list.controller';
 
 /** @ngInject */
-export function List(): angular.IDirective {
+export function list(): angular.IDirective {
 
   return {
     restrict: 'E',

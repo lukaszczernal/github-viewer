@@ -1,7 +1,7 @@
 import { QueryController } from './query.controller';
 
 /** @ngInject */
-export function Query(): angular.IDirective {
+export function query(): angular.IDirective {
 
   return {
     restrict: 'E',

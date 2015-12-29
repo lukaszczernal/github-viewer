@@ -1,9 +1,5 @@
-export default angular.module('httpInterceptor.service', [])
-  .factory('httpInterceptor', httpInterceptor)
-  .name;
-
 /** @ngInject */
-function httpInterceptor($q: ng.IQService, HTTP_STATUS: any) {
+export function httpInterceptor($q: ng.IQService, HTTP_STATUS: any) {
 
   return {
 
