@@ -1,5 +1,5 @@
 export class QueryController {
-  query: string = 'lukaszczernal';
+  query: string = '';
 
   /** @ngInject */
   constructor(private RepoProvider: any,

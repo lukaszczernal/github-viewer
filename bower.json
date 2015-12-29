@@ -2,6 +2,7 @@
   "name": "goeuro",
   "version": "0.1.0",
   "dependencies": {
+    "angular-sanitize": "~1.4.2",
     "angular-new-router": "~0.5.3",
     "bootstrap-stylus": "~4.0.4",
     "angular-bootstrap": "~0.13.4",
